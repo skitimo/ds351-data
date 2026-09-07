@@ -21,6 +21,7 @@ changes later.
 | `elecequip.csv` | 195 | 1996-01 to 2012-03 | monthly | Lec 07, Lab 07 |
 | `AirPassengers.csv` | 144 | 1949-01 to 1960-12 | monthly | Lec 07, Lab 07 |
 | `CarSales.csv` | 108 | 1960-01 to 1968-12 | monthly | Lec 07--09, Lab 08--09 |
+| `CM_temp.csv` | 7882 | 1998-01-01 to 2019-07-31 | daily | Lec 08--09, Lab 08--09 |
 
 ### `elecequip.csv`
 
@@ -58,6 +59,23 @@ Monthly car sales in Quebec, January 1960 -- December 1968, in units. A standard
 teaching series (Abraham & Ledolter, *Statistical Methods for Forecasting*).
 
 - Columns: `Month` (`YYYY-MM`), `Sales`.
+
+### `CM_temp.csv`
+
+Daily maximum temperature in Chiang Mai, 1998-01-01 to 2019-07-31, in degrees
+Celsius.
+
+- Columns: `Date` (`YYYY-MM-DD`), `MaxTemp`.
+- **Provenance not fully confirmed.** The file was published on a previous
+  offering of this course (`donlapark.pages.dev/229351/data/CM_temp.csv`) with
+  no attribution. It is most likely derived from Thai Meteorological Department
+  station records, but that has not been verified with the original compiler.
+  Treat it as a teaching dataset, not as a citable climate record.
+
+Averaged to annual means it is the deck's simple-exponential-smoothing example:
+21 points, a fitted \(\alpha\) of 0.314, and a trend of about
++0.07 °C/year that is real but too small for 21 years to justify modelling —
+AICc prefers SES over Holt on it.
 
 ## Licence and use
 
