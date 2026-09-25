@@ -22,6 +22,7 @@ changes later.
 | `AirPassengers.csv` | 144 | 1949-01 to 1960-12 | monthly | Lec 07, Lab 07 |
 | `CarSales.csv` | 108 | 1960-01 to 1968-12 | monthly | Lec 07--09, Lab 08--09 |
 | `CM_temp.csv` | 7882 | 1998-01-01 to 2019-07-31 | daily | Lec 08--09, Lab 08--09 |
+| `framingham.csv` | 4240 | cross-sectional | — | Lec 10--11, Lab 10--11 |
 
 ### `elecequip.csv`
 
@@ -76,6 +77,32 @@ Averaged to annual means it is the deck's simple-exponential-smoothing example:
 21 points, a fitted \(\alpha\) of 0.314, and a trend of about
 +0.07 °C/year that is real but too small for 21 years to justify modelling —
 AICc prefers SES over Holt on it.
+
+### `framingham.csv`
+
+A teaching extract of the **Framingham Heart Study**: one row per participant,
+with demographic, behavioural and clinical measurements at a baseline exam and
+whether coronary heart disease was diagnosed within the following ten years.
+Used for binary logistic regression and for evaluating classifiers.
+
+- Columns (16): `male`, `age`, `education`, `currentSmoker`, `cigsPerDay`,
+  `BPMeds`, `prevalentStroke`, `prevalentHyp`, `diabetes`, `totChol`, `sysBP`,
+  `diaBP`, `BMI`, `heartRate`, `glucose`, and the label `TenYearCHD` (1 = CHD
+  within ten years).
+- Missing values are written `NA` in seven columns: `glucose` 388, `education`
+  105, `BPMeds` 53, `totChol` 50, `cigsPerDay` 29, `BMI` 19, `heartRate` 1.
+  3,658 rows are complete.
+- The classes are **imbalanced**: 15.19% positive overall (15.23% among the
+  complete rows), so a model that always predicts 0 is already about 85%
+  accurate — the point Lab 11 is built around.
+- **Provenance not fully confirmed.** This copy is the file published on a
+  previous offering of this course
+  (`donlapark.pages.dev/229351/data/framingham.csv`). The same 4,240-row extract
+  circulates widely as a teaching dataset; it derives from the Framingham Heart
+  Study, but which release it was cut from has not been verified. Treat it as a
+  teaching dataset, not as a research-grade copy of the study data.
+- Line endings were converted from CR to LF and a final newline added; every
+  value is unchanged (checked with `pandas.DataFrame.equals`).
 
 ## Licence and use
 
